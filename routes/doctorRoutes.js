@@ -6,7 +6,7 @@ const {
   doctorAppointmentsController,
   updateStatusController,
 } = require("../controllers/doctorCtrl");
-const authMiddleware = require("../middleware/authMiddleware");
+const authMiddleware = require("../middlewares/authMiddleware");
 const router = express.Router();
 
 //POST SINGLE DOC INFO

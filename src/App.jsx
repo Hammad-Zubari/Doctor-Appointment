@@ -1,7 +1,8 @@
-import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from "./components/Layout";
-
+import HomePage from "./pages/HomePage";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import PublicRoute from "./components/PublicRoute";
 
 function App() {
   return (
@@ -10,9 +11,24 @@ function App() {
         <Route
           path="/"
           element={
-            <Layout>
-              <h1 style={{ padding: "20px" }}>This is the Home Page Content</h1>
-            </Layout>
+            // HomePage is accessible without authentication for now
+            <HomePage />
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <PublicRoute>
+              <Login />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <PublicRoute>
+              <Register />
+            </PublicRoute>
           }
         />
       </Routes>

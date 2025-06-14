@@ -1,0 +1,35 @@
+/* DoctorList.module.css */
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  padding: 16px;
+  margin: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.header {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #2b2d42;
+}
+
+.body p {
+  margin: 6px 0;
+  font-size: 0.95rem;
+  color: #4a4e69;
+}
+
+.label {
+  font-weight: 600;
+  color: #1d3557;
+}

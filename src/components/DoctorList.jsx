@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "../styles/DoctorList.module.css"; // 👈 CSS Module import
+import styles from "../styles/DoctorList.module.css"; 
 
 const DoctorList = ({ doctor }) => {
   const navigate = useNavigate();

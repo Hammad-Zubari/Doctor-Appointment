@@ -3,20 +3,25 @@ import "../styles/LayoutStyles.css";
 import { adminMenu, userMenu } from "../data/Data";
 
 import { Link, useLocation, useNavigate } from "react-router-dom";
-//import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Badge, message } from "antd";
+
+
 const Layout = ({ children }) => {
-  //const { user } = useSelector((state) => state.user);
-  // Add this line at the top of Layout.js (for test only)
-const user = {
-  name: "Test User",
-  isAdmin: false,
-  isDoctor: false,
-  _id: "123",
-  notifcation: [1, 2, 3],
-};
+  const { user } = useSelector((state) => state.user);
+//   // Add this line at the top of Layout.js (for test only)
+// const user = {
+//   name: "Test User",
+//   isAdmin: false,
+//   isDoctor: false,
+//   _id: "123",
+//   notifcation: [1, 2, 3],
+// };
+
+
   const location = useLocation();
   const navigate = useNavigate();
+
   // logout funtion
   const handleLogout = () => {
     localStorage.clear();

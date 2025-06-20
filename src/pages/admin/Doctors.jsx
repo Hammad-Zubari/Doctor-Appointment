@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Layout from "./../../components/Layout";
+import Layout from "../../components/Layout";
 import axios from "axios";
 import { message, Table } from "antd";
 
@@ -38,6 +38,7 @@ const Doctors = () => {
         window.location.reload();
       }
     } catch (error) {
+      console.log(error);
       message.error("Something Went Wrong");
     }
   };

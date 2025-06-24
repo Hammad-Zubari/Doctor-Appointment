@@ -9,17 +9,23 @@ import axios from "axios";
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   //form handler
   const onfinishHandler = async (values) => {
     try {
       dispatch(showLoading());
       const res = await axios.post("/api/v1/user/login", values);
-      window.location.reload();
+      console.log("Login response:", res.data);
       dispatch(hideLoading());
       if (res.data.success) {
         localStorage.setItem("token", res.data.token);
+        console.log("Token saved:", res.data.token);
         message.success("Login Successfully");
         navigate("/");
+        // Optional: reload after navigating
+        // setTimeout(() => {
+        //   window.location.reload();
+        // }, 500);
       } else {
         message.error(res.data.message);
       }
@@ -29,6 +35,7 @@ const Login = () => {
       message.error("something went wrong");
     }
   };
+
   return (
     <div className="form-container ">
       <Form

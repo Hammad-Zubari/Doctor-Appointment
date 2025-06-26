@@ -40,15 +40,15 @@ const Users = () => {
       dataIndex: "isDoctor",
       render: (text, record) => <span>{record.isDoctor ? "Yes" : "No"}</span>,
     },
-    {
-      title: "Actions",
-      dataIndex: "actions",
-      render: (text, record) => (
-        <div className="d-flex">
-          <button className="btn btn-danger">Block</button>
-        </div>
-      ),
-    },
+    // {
+    //   title: "Actions",
+    //   dataIndex: "actions",
+    //   render: (text, record) => (
+    //     <div className="d-flex">
+    //       <button className="btn btn-danger">Block</button>
+    //     </div>
+    //   ),
+    // },
   ];
 
   return (

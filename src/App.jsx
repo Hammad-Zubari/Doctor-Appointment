@@ -34,7 +34,7 @@ function App() {
             <Route
               path="/admin/users"
               element={
-                <ProtectedRoute>
+                <ProtectedRoute allowedRoles={['admin']}>
                   <Users />
                 </ProtectedRoute>
               }
@@ -42,7 +42,7 @@ function App() {
             <Route
               path="/admin/doctors"
               element={
-                <ProtectedRoute>
+                <ProtectedRoute allowedRoles={['admin']}>
                   <Doctors />
                 </ProtectedRoute>
               }
@@ -50,7 +50,7 @@ function App() {
             <Route
               path="/doctor/profile/:id"
               element={
-                <ProtectedRoute>
+                <ProtectedRoute allowedRoles={['doctor']}>
                   <Profile />
                 </ProtectedRoute>
               }
@@ -58,7 +58,7 @@ function App() {
             <Route
               path="/doctor/book-appointment/:doctorId"
               element={
-                <ProtectedRoute>
+                <ProtectedRoute allowedRoles={['user']}>
                   <BookingPage />
                 </ProtectedRoute>
               }
@@ -66,7 +66,7 @@ function App() {
             <Route
               path="/notification"
               element={
-                <ProtectedRoute>
+                <ProtectedRoute allowedRoles={['user','doctor','admin']}>
                   <NotificationPage />
                 </ProtectedRoute>
               }
@@ -90,7 +90,7 @@ function App() {
             <Route
               path="/appointments"
               element={
-                <ProtectedRoute>
+                <ProtectedRoute allowedRoles={['user','doctor','admin']}>
                   <Appointments />
                 </ProtectedRoute>
               }
@@ -98,7 +98,7 @@ function App() {
             <Route
               path="/doctor-appointments"
               element={
-                <ProtectedRoute>
+                <ProtectedRoute allowedRoles={['doctor']}>
                   <DoctorAppointments />
                 </ProtectedRoute>
               }
@@ -106,7 +106,7 @@ function App() {
             <Route
               path="/"
               element={
-                <ProtectedRoute>
+                <ProtectedRoute allowedRoles={['user','doctor','admin']}>
                   <HomePage />
                 </ProtectedRoute>
               }
@@ -118,4 +118,4 @@ function App() {
   );
 }
 
-export default App;
+export default App;

@@ -16,7 +16,23 @@ const Register = () => {
       dispatch(hideLoading());
       if (res.data.success) {
         message.success("Register Successfully!");
-        navigate("/login");
+        // navigate("/");
+        dispatch(showLoading());
+      const res = await axios.post("/api/v1/user/login", values);
+      console.log("Login response:", res.data);
+      dispatch(hideLoading());
+      if (res.data.success) {
+        localStorage.setItem("token", res.data.token);
+        console.log("Token saved:", res.data.token);
+        message.success("Login Successfully");
+        navigate("/");
+        // Optional: reload after navigating
+        setTimeout(() => {
+          window.location.reload();
+        }, 0);
+      } else {
+        message.error(res.data.message);
+}
       } else {
         message.error(res.data.message);
       }

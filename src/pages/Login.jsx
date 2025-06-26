@@ -23,9 +23,9 @@ const Login = () => {
         message.success("Login Successfully");
         navigate("/");
         // Optional: reload after navigating
-        // setTimeout(() => {
-        //   window.location.reload();
-        // }, 500);
+        setTimeout(() => {
+          window.location.reload();
+        }, 0);
       } else {
         message.error(res.data.message);
       }

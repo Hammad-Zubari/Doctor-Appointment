@@ -127,3 +127,26 @@ body {
   font-size: 1.2rem;
   color: #004d66;
 }
+
+.notification-bell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.notification-bell-icon {
+  font-size: 20px;
+  color: #333;
+  margin-right: 20px; /* increased from 10px */
+  vertical-align: middle;
+}
+
+.user-name-link {
+  font-weight: 600;
+  color: #0d3e6d;
+  text-decoration: none;
+  margin-left: 4px; /* small space to ensure gap from the bell */
+}
+
+

@@ -6,18 +6,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Badge, message } from "antd";
 
-
 const Layout = ({ children }) => {
   const { user } = useSelector((state) => state.user);
-//   // Add this line at the top of Layout.js (for test only)
-// const user = {
-//   name: "Test User",
-//   isAdmin: false,
-//   isDoctor: false,
-//   _id: "123",
-//   notifcation: [1, 2, 3],
-// };
-
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -41,7 +31,6 @@ const Layout = ({ children }) => {
       path: "/doctor-appointments",
       icon: "fa-solid fa-list",
     },
-
     {
       name: "Profile",
       path: `/doctor/profile/${user?._id}`,
@@ -56,13 +45,14 @@ const Layout = ({ children }) => {
     : user?.isDoctor
     ? doctorMenu
     : userMenu;
+
   return (
     <>
       <div className="main">
         <div className="layout">
           <div className="sidebar">
             <div className="logo">
-              <h6 className="text-light">DOC APP</h6>
+              <h6 className="text-light">DOCTOR ONLINE APPOINTMENT</h6>
               <hr />
             </div>
             <div className="menu">
@@ -85,17 +75,23 @@ const Layout = ({ children }) => {
           </div>
           <div className="content">
             <div className="header">
-              <div className="header-content" style={{ cursor: "pointer" }}>
-                <Badge
-                  count={user && user.notifcation.length}
-                  onClick={() => {
-                    navigate("/notification");
-                  }}
-                >
-                  <i class="fa-solid fa-bell"></i>
-                </Badge>
-
-                <Link to="/profile">{user?.name}</Link>
+              <div
+                className="header-content"
+                style={{ cursor: "pointer" }}
+              >
+                <div className="notification-bell">
+                  <Badge
+                    count={user && user.notifcation.length}
+                    onClick={() => {
+                      navigate("/notification");
+                    }}
+                  >
+                    <i className="fa-solid fa-bell"></i>
+                  </Badge>
+                  <Link to="/profile" className="user-name-link">
+                    {user?.name}
+                  </Link>
+                </div>
               </div>
             </div>
             <div className="body">{children}</div>

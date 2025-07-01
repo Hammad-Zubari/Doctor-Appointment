@@ -131,7 +131,7 @@
 }
 
 /* Optional underline animation */
-.glass-container h1.text-center::after {
+/* .glass-container h1.text-center::after {
   content: '';
   position: absolute;
   bottom: -8px;
@@ -142,8 +142,19 @@
   background: linear-gradient(to right, #231e83, #9cb1d3);
   border-radius: 2px;
   transition: width 0.3s ease;
-}
+} */
 
 .glass-container h1.text-center:hover::after {
   width: 100%;
 }
+.appointments-heading {
+  font-size: 2rem;
+  color: #ffffff;
+  background: linear-gradient(to right, #5b88b7, #0c2f4d);
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+

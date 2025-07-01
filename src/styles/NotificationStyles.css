@@ -77,3 +77,29 @@ h4.p-2:hover {
 .ant-tabs-tab-active .ant-tabs-tab-btn {
   color: #4e8df5;
 }
+/* Ensure pagination numbers are centered inside the box */
+.ant-pagination-item {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  font-size: 1rem;
+  padding: 0;
+  margin: 0 4px;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.ant-pagination-item a {
+  width: 100%;
+  text-align: center;
+  line-height: 36px;
+}
+
+/* Active page styling */
+.ant-pagination-item-active {
+  background-color: #e6f4ff;
+  border-color: #1890ff;
+}
+

@@ -95,10 +95,7 @@ const DoctorAppointments = () => {
   ];
   return (
     <Layout>
-      <h1 style={{ color: "#2c3e50", fontSize: "2rem", fontWeight: "700", textAlign: "center", marginBottom: "1rem" }}>
-  Appointments Lists
-</h1>
-
+      <h1 className="appointments-heading">Appoinmtnets Lists</h1>
       <Table columns={columns} dataSource={appointments} />
     </Layout>
   );

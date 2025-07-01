@@ -38,7 +38,10 @@ useEffect(() => {
 
   return (
     <Layout>
-      <h1 className="text-center">Home Page</h1>
+      <h1 className="appointments-heading">
+   Home Page
+</h1>
+
       <Row>
         {doctors && doctors.map((doctor) => (
           <DoctorList key={doctor._id} doctor={doctor} />

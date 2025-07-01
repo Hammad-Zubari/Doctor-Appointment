@@ -76,7 +76,7 @@ const Profile = () => {
   }, []);
   return (
     <Layout>
-      <h1>Manage Profile</h1>
+      <h1 className="appointments-heading">Manage Profile</h1>
       {doctor && (
         <Form
           layout="vertical"

@@ -50,7 +50,7 @@ const Appointments = () => {
 
   return (
     <Layout>
-      <h1>Appoinmtnets Lists</h1>
+      <h1 className="appointments-heading">Appointments List</h1>
       <Table columns={columns} dataSource={appointments} />
     </Layout>
   );

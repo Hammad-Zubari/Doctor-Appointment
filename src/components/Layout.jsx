@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../styles/LayoutStyles.css";
 import { adminMenu, userMenu } from "../data/Data";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -10,6 +10,28 @@ const Layout = ({ children }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const [showSidebar, setShowSidebar] = useState(false);
+
+  const sidebarRef = useRef();
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (
+        sidebarRef.current &&
+        !sidebarRef.current.contains(event.target) &&
+        !event.target.classList.contains("user-name-link")
+      ) {
+        setShowSidebar(false);
+      }
+    };
+
+    if (showSidebar) {
+      document.addEventListener("mousedown", handleOutsideClick);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [showSidebar]);
 
   const handleLogout = () => {
     localStorage.clear();
@@ -69,7 +91,7 @@ const Layout = ({ children }) => {
       </div>
 
       {/* Sidebar Drawer */}
-      <div className={`sidebar-drawer ${showSidebar ? "show" : ""}`}>
+      <div className={`sidebar-drawer ${showSidebar ? "show" : ""}`} ref={sidebarRef}>
         <div className="menu">
           {SidebarMenu.map((menu) => {
             const isActive = location.pathname === menu.path;

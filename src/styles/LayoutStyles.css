@@ -1,152 +1,149 @@
-/* Fullscreen background image */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: url('/src/assets/pic1.jpg') no-repeat center center fixed;
-  background-size: cover;
+/* Background */
+.layout-bg {
+  background: url("/images/d.webp") no-repeat center center/cover;
   height: 100vh;
+  width: 100vw;
+  position: relative;
   overflow: hidden;
 }
 
-/* Layout base */
-.main {
-  padding: 10px;
-  height: 100vh;
-  width: 100%;
-  position: relative;
-  z-index: 1;
-}
-
-.layout {
+/* Header directly on background */
+.header-on-bg {
   display: flex;
-  height: 100%;
-}
-
-/* Sidebar with transparency */
-.sidebar {
-  min-height: 100%;
-  width: 280px;
-  border-radius: 10px;
-  background-color: rgba(0, 77, 102, 0.9); /* semi-transparent blue */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  color: white;
-  padding: 20px;
-  margin-right: 20px;
-}
-
-/* Content */
-.content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Header */
-.header {
-  height: 10vh;
-  background-color: rgba(255, 255, 255, 0.8); /* semi-transparent white */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
   justify-content: flex-end;
-}
-
-/* Body */
-.body {
-  flex: 1;
-  background-color: rgba(255, 255, 255, 0.85); /* semi-transparent white */
-  margin-top: 10px;
-  border-radius: 10px;
-  padding: 20px;
-  overflow-y: auto;
-}
-
-/* Logo */
-.logo h6 {
-  font-size: 1.8rem;
-  text-align: center;
-  margin: 20px 0;
+  padding: 20px 30px;
   color: #fff;
+  font-size: 22px; /* increased size */
+  z-index: 10;
+  position: relative;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* for visibility */
 }
 
-/* Menu */
-.menu {
-  margin-top: 30px;
+.notification-bell {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  font-size: 30px; /* increased icon size */
 }
-
-.menu-item {
-  margin: 15px 0;
-  padding: 10px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+/* Make the bell icon white by default */
+.notification-bell i.fa-bell {
+  color: #ffffff;
+  font-size: 22px;
+  transition: color 0.2s ease, transform 0.2s ease;
   cursor: pointer;
 }
 
+/* Change it to blue when hovered */
+.notification-bell i.fa-bell:hover {
+  color: #007bff; /* Bootstrap blue or adjust as needed */
+  transform: scale(1.1);
+}
+
+
+
+.user-name-link {
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 20px; /* increased from 18px */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); /* for readability */
+  text-decoration: none;
+}
+.user-name-link:hover {
+  color: #007bff;
+  transform: scale(1.05);
+}
+
+/* Glass container (blurred content only) */
+.glass-container {
+  margin: 0 20px 20px 20px;
+  backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 24px;
+  height: calc(100vh - 100px); /* leaves space for header */
+  overflow-y: auto;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+
+/* Sidebar Drawer */
+.sidebar-drawer {
+  position: fixed;
+  top: 0;
+  right: -280px;
+  width: 250px;
+  height: 100%;
+  background: linear-gradient(to bottom right, #5b88b7, #0c2f4d);
+  color: white;
+  padding: 24px 16px;
+  transition: right 0.3s ease-in-out;
+  z-index: 999;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.sidebar-drawer.show {
+  right: 0;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 12px;
+  transition: 0.3s;
+  font-size: 16px;
+}
+
 .menu-item:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
 }
 
 .menu-item a {
   color: white;
   text-decoration: none;
-  font-size: 1.1rem;
 }
 
-.menu-item i {
-  margin-right: 10px;
+.menu-item.active {
+  background: rgba(255, 255, 255, 0.25);
+  font-weight: bold;
 }
 
-.active {
-  background-color: #fff;
-  color: #004d66;
+/* Stylish heading for Home Page */
+.glass-container h1.text-center {
+  color: #1e3a8a; /* Elegant deep blue */
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
 }
 
-.active a,
-.active i {
-  color: #004d66;
+/* Optional underline animation */
+.glass-container h1.text-center::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 4px;
+  background: linear-gradient(to right, #231e83, #9cb1d3);
+  border-radius: 2px;
+  transition: width 0.3s ease;
 }
 
-/* Header Content */
-.header-content {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+.glass-container h1.text-center:hover::after {
+  width: 100%;
 }
-
-.header-content a {
-  text-decoration: none;
-  font-weight: 600;
-  color: #004d66;
-  text-transform: uppercase;
-}
-
-/* Notification bell */
-.header-content i {
-  font-size: 1.2rem;
-  color: #004d66;
-}
-
-.notification-bell {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-
-.notification-bell-icon {
-  font-size: 20px;
-  color: #333;
-  margin-right: 20px; /* increased from 10px */
-  vertical-align: middle;
-}
-
-.user-name-link {
-  font-weight: 600;
-  color: #0d3e6d;
-  text-decoration: none;
-  margin-left: 4px; /* small space to ensure gap from the bell */
-}
-
-

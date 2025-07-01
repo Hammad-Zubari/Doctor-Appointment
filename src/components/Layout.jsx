@@ -1,25 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/LayoutStyles.css";
 import { adminMenu, userMenu } from "../data/Data";
-
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Badge, message } from "antd";
 
 const Layout = ({ children }) => {
   const { user } = useSelector((state) => state.user);
-
   const location = useLocation();
   const navigate = useNavigate();
+  const [showSidebar, setShowSidebar] = useState(false);
 
-  // logout funtion
   const handleLogout = () => {
     localStorage.clear();
     message.success("Logout Successfully");
     navigate("/login");
   };
 
-  // =========== doctor menu ===============
   const doctorMenu = [
     {
       name: "Home",
@@ -37,9 +34,7 @@ const Layout = ({ children }) => {
       icon: "fa-solid fa-user",
     },
   ];
-  // =========== doctor menu ===============
 
-  // redering menu list
   const SidebarMenu = user?.isAdmin
     ? adminMenu
     : user?.isDoctor
@@ -47,58 +42,55 @@ const Layout = ({ children }) => {
     : userMenu;
 
   return (
-    <>
-      <div className="main">
-        <div className="layout">
-          <div className="sidebar">
-            <div className="logo">
-              <h6 className="text-light">DOCTOR ONLINE APPOINTMENT</h6>
-              <hr />
-            </div>
-            <div className="menu">
-              {SidebarMenu.map((menu) => {
-                const isActive = location.pathname === menu.path;
-                return (
-                  <>
-                    <div className={`menu-item ${isActive && "active"}`}>
-                      <i className={menu.icon}></i>
-                      <Link to={menu.path}>{menu.name}</Link>
-                    </div>
-                  </>
-                );
-              })}
-              <div className={`menu-item `} onClick={handleLogout}>
-                <i className="fa-solid fa-right-from-bracket"></i>
-                <Link to="/login">Logout</Link>
-              </div>
-            </div>
-          </div>
-          <div className="content">
-            <div className="header">
+    <div className="layout-bg">
+      {/* Header directly on background */}
+      <div className="header-on-bg">
+        <div className="notification-bell">
+          <Badge
+            count={user && user.notifcation.length}
+            onClick={() => {
+              navigate("/notification");
+            }}
+          >
+            <i className="fa-solid fa-bell"></i>
+          </Badge>
+          <span
+            className="user-name-link"
+            onClick={() => setShowSidebar(!showSidebar)}
+          >
+            {user?.name}
+          </span>
+        </div>
+      </div>
+
+      {/* Blurred Glass Container */}
+      <div className="glass-container">
+        <div className="body">{children}</div>
+      </div>
+
+      {/* Sidebar Drawer */}
+      <div className={`sidebar-drawer ${showSidebar ? "show" : ""}`}>
+        <div className="menu">
+          {SidebarMenu.map((menu) => {
+            const isActive = location.pathname === menu.path;
+            return (
               <div
-                className="header-content"
-                style={{ cursor: "pointer" }}
+                className={`menu-item ${isActive && "active"}`}
+                key={menu.name}
+                onClick={() => setShowSidebar(false)}
               >
-                <div className="notification-bell">
-                  <Badge
-                    count={user && user.notifcation.length}
-                    onClick={() => {
-                      navigate("/notification");
-                    }}
-                  >
-                    <i className="fa-solid fa-bell"></i>
-                  </Badge>
-                  <Link to="/profile" className="user-name-link">
-                    {user?.name}
-                  </Link>
-                </div>
+                <i className={menu.icon}></i>
+                <Link to={menu.path}>{menu.name}</Link>
               </div>
-            </div>
-            <div className="body">{children}</div>
+            );
+          })}
+          <div className="menu-item" onClick={handleLogout}>
+            <i className="fa-solid fa-right-from-bracket"></i>
+            <Link to="/login">Logout</Link>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

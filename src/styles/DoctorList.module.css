@@ -1,35 +1,97 @@
 /* DoctorList.module.css */
 
 .card {
-  border: 1px solid #ddd;
-  border-radius: 16px;
-  padding: 16px;
-  margin: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  background-color: #fff;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 16px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  max-width: 400px;
+  width: 100%;
 }
 
 .card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  border-color: #1d3557; /* Deep blue border on hover */
+}
+
+/* Optional image/avatar at top */
+.card-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #1d3557;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive container (for card list) */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 16px;
 }
 
 .header {
-  font-size: 1.25rem;
-  font-weight: bold;
-  margin-bottom: 8px;
+  font-size: 1.4rem;
+  font-weight: 700;
   color: #2b2d42;
+  margin-bottom: 4px;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.card:hover .header {
+  color: #1d3557; /* Dark blue on hover */
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: center;
 }
 
 .body p {
-  margin: 6px 0;
-  font-size: 0.95rem;
+  margin: 0;
+  font-size: 1rem;
   color: #4a4e69;
+  line-height: 1.4;
 }
 
+/* Label style */
 .label {
   font-weight: 600;
   color: #1d3557;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .card {
+    max-width: 90%;
+    margin: 12px auto;
+  }
+
+  .card-img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .header {
+    font-size: 1.25rem;
+  }
+
+  .body p {
+    font-size: 0.95rem;
+  }
 }

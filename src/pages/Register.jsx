@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/RegisterStyles.css";
+import "../styles/AuthFormStyles.css";
 import { Form, Input, message } from "antd";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
@@ -48,8 +48,9 @@ const Register = () => {
         <Form
           layout="vertical"
           onFinish={onfinishHandler}
-          className="register-form"
+          className="auth-form"
         >
+          <img src="/images/icon.png" alt="doctor" className="form-icon" />
           <h3 className="text-center">Register From</h3>
           <Form.Item label="Name" name="name">
             <Input type="text" required />

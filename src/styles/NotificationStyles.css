@@ -1,0 +1,79 @@
+/* NotificationStyles.css */
+
+h4 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.card {
+  background-color: #fefefe;
+  border: 1px solid #dcdcdc;
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 12px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  background-color: #f5faff;
+  transform: scale(1.01);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card-text {
+  font-size: 1.2rem;
+  color: #34495e;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-3 {
+  padding: 1rem;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
+}
+
+.text-primary {
+  color: #34495e;
+}
+
+.text-primary:hover {
+  color: #5183da;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Optional: Add smooth hover effect on clickable headings */
+h4.p-2:hover {
+  opacity: 0.85;
+}
+/* Increase font size of Tabs titles (Read / Unread) */
+.ant-tabs-tab-btn {
+  font-size: 1.3rem !important;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* Optional: Add hover effect for tab labels */
+.ant-tabs-tab:hover .ant-tabs-tab-btn {
+  color: #4e8df5;
+}
+
+/* Optional: Bold active tab */
+.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #4e8df5;
+}

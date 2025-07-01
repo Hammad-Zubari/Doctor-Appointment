@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/RegisterStyles.css";
+import "../styles/AuthFormStyles.css";
 import { Form, Input, message } from "antd";
 import { useDispatch } from "react-redux";
 import { showLoading, hideLoading } from "../redux/features/alertSlice";
@@ -41,8 +41,9 @@ const Login = () => {
       <Form
         layout="vertical"
         onFinish={onfinishHandler}
-        className="register-form"
+        className="auth-form"
       >
+        <img src="/images/icon.png" alt="doctor" className="form-icon" />
         <h3 className="text-center">Login From</h3>
 
         <Form.Item label="Email" name="email">

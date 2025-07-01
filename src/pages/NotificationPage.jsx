@@ -1,5 +1,6 @@
 import React from "react";
 import Layout from "./../components/Layout";
+import "../styles/NotificationStyles.css";
 import { message, Tabs } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 import { showLoading, hideLoading } from "../redux/features/alertSlice";
@@ -69,7 +70,7 @@ const NotificationPage = () => {
       <Tabs>
         <Tabs.TabPane tab="unRead" key={0}>
           <div className="d-flex justify-content-end">
-            <h4 className="p-2" onClick={handleMarkAllRead}>
+            <h4 className="p-2 text-primary" style={{ cursor: "pointer" }} onClick={handleMarkAllRead}>
               Mark All Read
             </h4>
           </div>
